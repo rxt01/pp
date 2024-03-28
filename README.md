@@ -34,7 +34,7 @@ Où le `tmp` fait référence au bloc chiffré, `original[i]` le bit du fichier 
 Pour les bloc suivant le premier, le bloc chiffré du bloc le précédant remplace le mot de passe.
 
 L'opération est ensuite répété avec le mot de passe.
-#![diagram chiffrage](https://raw.githubusercontent.com/rxt01/pp/main/Capture%20d'écran%202024-03-28%20103225.png)
+
 ### Déchiffrage de chaque bloc
 Le déchiffrage est très similaire au chiffrage.
 
