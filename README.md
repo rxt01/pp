@@ -1,46 +1,47 @@
-## Definitions
-- Pour eviter de la repetition inutile, un fichier fais references, dans le present document, a un fichier electronique ou a un message
+## Définitions
+- Pour eviter de la répétition inutile, un fichier fait références, dans le présent document, a un fichier électronique ou a un message
 
-- Chiffrer un fichier est l'acte de rendre le contenu du fichier incomprehensible pour ceux ne conaissant pas le secret permetant de le  ( dans ce cas ci, un mot de passe).
-- Dechiffrer un fichier est l'acte de rendre comprehensible le contenu du fichier, de renverser les effets du chiffrage.
-- Un mot de passe est une serie de charactere qui n'est connu que de ceux pouvant acceder au contenu du fichier.
-- Un bit est la plus petite partie de toute chose informatique, ils peuvent prendre les valeurs de 0  ou 1.
-## Presentation de l'application
+- Chiffrer un fichier est l'acte de rendre le contenu du fichier incompréhensible pour ceux ne connaissant pas le secret permettant de le comprendre  ( dans ce cas ci, un mot de passe).
+- Déchiffrer un fichier est l'acte de rendre compréhensible le contenu du fichier, de renverser les effets du chiffrage.
+- Un mot de passe est une série de caractères qui n'est connue que de ceux pouvant accéder au contenu du fichier.
+- Un bit est la plus petite partie de toute chose informatiques, ils peuvent prendre les valeurs de 0  ou 1.
+- L'index d'un élément est sa position dans une suite d'éléments.
+## Présentation de l'application
 Cette apllication sert a chiffrer des fichiers.
 
-Elle a ete realisee dans le cadre du projet personnel de l'IB.
+Elle a été réalisée dans le cadre du projet personnel de l'IB.
 
-## Foncitonnement de l'application
+## Fonctionnement de l'application
 ### Traitement des fichiers
 L'application prend un fichier original ainsi qu'un mot de passe.
 
-Elle separe ensuite ce fichier en plusieurs bloc chacun de la taille du mot de passe.
+Elle sépare ensuite ce fichier en plusieurs blocs chacun de la taille du mot de passe.
 
-### Chifrement de chaque bloc
-Pour chaque bloc, elle prend chaque bit du bloc original et le compare avec  le bit du mot de passe ayant le meme index.
+### Chiffrement de chaque bloc
+Pour chaque bloc, elle prend chaque bit du bloc original et le compare avec le bit du mot de passe ayant le même index.
 
-Elle met dans le bloc chifrer un bit selon la relation suivante:
+Elle met dans le bloc chiffré un bit selon la relation suivante:
     
-        0 si les bits sont les memes
-        1 si les bits ne sont pas les memes
+        0 si les bits sont les mêmes 
+        1 si les bits ne sont pas les mêmes 
 
-Dans le code cela est realiser par le bout suivant:
+Dans le code cela est réaliser par le morceau de code suivant:
 ```
 tmp.push_back(original[i] ^ key[i])
 ``` 
-Ou le `tmp` fait reference au bloc chiffrer, `original[i]` le bit du fichier original, `key[i]` le bit du mot de passe et `^` la relation expliquer plus haut.
+Où le `tmp` fait référence au bloc chiffré, `original[i]` le bit du fichier original, `key[i]` le bit du mot de passe et `^` la relation expliquée plus haut.
 
-Pour les bloc suivant le premier, le bloc chifrer du bloc precedent remplace le mot de passe.
+Pour les bloc suivant le premier, le bloc chiffré du bloc le précédant remplace le mot de passe.
 
-L'operation est ensuite repete avec le mot de passe.
+L'opération est ensuite répété avec le mot de passe.
 
-### Dechifrage de chaque bloc
-Le dechifrage est tres similaire au chifrage.
+### Déchiffrage de chaque bloc
+Le déchiffrage est très similaire au chiffrage.
 
-On commence par la meme operation que pour le chifrage en utilisant le mot de passe.
+On commence par la meme opération que pour le chiffrage en utilisant le mot de passe.
 
-L'operation est ensuit repeter avec le bloc original du dernier bloc pour obtenir le bloc dechifrer.
+L'opération est ensuite répéter avec le bloc original du dernier bloc pour obtenir le bloc déchiffrer.
 
-Dans le cas du premier bloc, on utilise le mot de passe lors de la deuxieme realisation  de l'operation.
+Dans le cas du premier bloc, on utilise le mot de passe lors de la deuxième réalisation  de l'opération.
 ### Recombination
-Lorse que tout les blocs ont ete chifrees ou dechifrees, ils sont tous recombiner en un seul fichier
+Lorsque tous les blocs ont été chiffrées ou déchiffrées, ils sont tous recombinés en un seul fichier.
