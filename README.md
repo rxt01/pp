@@ -15,7 +15,7 @@ Elle a été réalisée dans le cadre du projet personnel de l'IB.
 ### Traitement des fichiers
 L'application prend un fichier original ainsi qu'un mot de passe.
 
-Elle sépare ensuite ce fichier en plusieurs blocs chacun de la taille du mot de passe.
+Elle sépare ensuite le fichier en plusieurs blocs chacun de la taille du mot de passe.
 
 ### Chiffrement de chaque bloc
 Pour chaque bloc, elle prend chaque bit du bloc original et le compare avec le bit du mot de passe ayant le même index.
